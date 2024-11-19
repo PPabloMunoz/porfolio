@@ -1,0 +1,41 @@
+---
+const projects = [
+  {
+    name: 'Footy League',
+    description:
+      'Footy League es una plataforma para la gestión de ligas para distintos deportes',
+    image: 'placeholder.svg',
+    url: '#',
+  },
+  {
+    name: 'Zylera',
+    description:
+      'Zylera es una plataforma de gestión de reservas para negocios y particulares',
+    image: 'placeholder.svg',
+    url: '#',
+  },
+]
+---
+
+<section id='projects'>
+  <h2 class='text-4xl font-bold text-balance mb-4 text-center'>Proyectos</h2>
+
+  <div class='flex flex-col gap-4'>
+    {
+      projects.map((project) => (
+        <div class='flex flex-row gap-4 justify-between items-center'>
+          <div>
+            <h3 class='text-2xl font-bold'>{project.name}</h3>
+            <p class='text-sm text-primary-foreground'>{project.description}</p>
+          </div>
+
+          <img
+            src={project.image}
+            alt={project.name}
+            class='aspect-video w-1/3 object-cover'
+          />
+        </div>
+      ))
+    }
+  </div>
+</section>

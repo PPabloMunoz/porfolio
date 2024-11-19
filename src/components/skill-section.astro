@@ -1,0 +1,107 @@
+---
+export const frontendSkills = [
+  { name: 'HTML', icon: 'html.svg' },
+  { name: 'CSS', icon: 'css.svg' },
+  { name: 'Javascript', icon: 'javascript.svg' },
+  { name: 'Typescript', icon: 'typescript.svg' },
+  { name: 'React', icon: 'react.svg' },
+  { name: 'Next.js', icon: 'nextjs.svg' },
+  { name: 'Astro', icon: 'astro.svg' },
+  { name: 'Tailwind', icon: 'tailwind.svg' },
+]
+
+const backendSkills = [
+  { name: 'Node.JS', icon: 'nodejs.svg' },
+  { name: 'Bun', icon: 'bun.svg' },
+  { name: 'Express', icon: 'express.svg' },
+  { name: 'PostgreSQL', icon: 'postgresql.svg' },
+  { name: 'MongoDB', icon: 'mongodb.svg' },
+]
+
+const otherSkills = [
+  { name: 'Git', icon: 'git.svg' },
+  { name: 'Github', icon: 'github.svg' },
+  { name: 'Gitlab', icon: 'gitlab.svg' },
+  { name: 'Docker', icon: 'docker.svg' },
+  { name: 'Python', icon: 'python.svg' },
+  { name: 'Java', icon: 'java.svg' },
+]
+
+const skills = {
+  frontend: frontendSkills,
+  backend: backendSkills,
+  other: otherSkills,
+} as const
+---
+
+<section id='skills'>
+  <h2 class='text-4xl font-bold text-balance mb-4 text-center'>Habilidades</h2>
+
+  <div class='flex gap-10 flex-col'>
+    <div class='w-full'>
+      <h3 class='text-2xl font-semibold mb-4'>Frontend</h3>
+      <div class='grid grid-cols-2 md:grid-cols-4 gap-4'>
+        {
+          skills.frontend.map((skill) => (
+            <div class='group' title={skill.name}>
+              <div class='bg-card cursor-default p-4 rounded-xl shadow-md transition duration-300 transform hover:scale-105 hover:shadow-xl flex flex-col items-center justify-center'>
+                <img
+                  src={`/icons/${skill.icon}`}
+                  alt={skill.name}
+                  class='size-10 mb-2'
+                />
+                <span class='text-sm font-semibold transition-colors duration-300'>
+                  {skill.name}
+                </span>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class='w-full'>
+      <h3 class='text-2xl font-semibold mb-4'>Backend</h3>
+      <div class='grid grid-cols-2 md:grid-cols-4 gap-4'>
+        {
+          skills.backend.map((skill) => (
+            <div class='group' title={skill.name}>
+              <div class='bg-card p-4 rounded-xl shadow-md transition duration-300 transform hover:scale-105 hover:shadow-xl flex flex-col items-center justify-center'>
+                <img
+                  src={`/icons/${skill.icon}`}
+                  alt={skill.name}
+                  class='size-10 mb-2'
+                />
+                <span class='text-sm font-semibold transition-colors duration-300'>
+                  {skill.name}
+                </span>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class='w-full'>
+      <h3 class='text-2xl font-semibold mb-4'>Otras</h3>
+      <div class='grid grid-cols-2 md:grid-cols-4 gap-4'>
+        {
+          skills.other.map((skill) => (
+            <div class='group' title={skill.name}>
+              <div class='bg-card p-4 rounded-xl shadow-md transition duration-300 transform hover:scale-105 hover:shadow-xl flex flex-col items-center justify-center'>
+                <img
+                  src={`/icons/${skill.icon}`}
+                  alt={skill.name}
+                  class='size-10 mb-2'
+                />
+                <span class='text-sm font-semibold transition-colors duration-300'>
+                  {skill.name}
+                </span>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

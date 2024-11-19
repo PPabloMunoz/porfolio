@@ -1,11 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro'
 
-const skills = [
-  { name: 'React', icon: 'react.svg' },
-  { name: 'Astro', icon: 'astro.svg' },
-  { name: 'Tailwind', icon: 'tailwind.svg' },
-]
+import ProjectsSection from '../components/projects-section.astro'
+import SkillSection from '../components/skill-section.astro'
 ---
 
 <Layout title='Welcome to Astro.'>
@@ -28,7 +25,7 @@ const skills = [
       </h2>
       <div class='flex gap-10'>
         <img
-          src='/pablo.webp'
+          src='/placeholder.svg'
           alt='Pablo Muñoz photo'
           class='size-44 rounded-full object-cover'
         />
@@ -48,10 +45,14 @@ const skills = [
       </div>
     </section>
 
-    <section id='skills'>
-      <h2 class='text-4xl font-bold text-balance mb-4 text-center'>
-        Habilidades
-      </h2>
-    </section>
+    <ProjectsSection />
+
+    <SkillSection />
   </main>
+
+  <footer
+    class='flex justify-center my-10 items-center w-full p-4 mx-auto max-w-screen-lg mb-12 sticky top-0 left-0 right-0 backdrop-blur-md'
+  >
+    <p>© {new Date().getFullYear()} All rights reserved</p>
+  </footer>
 </Layout>
