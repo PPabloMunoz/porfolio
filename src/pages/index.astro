@@ -1,0 +1,57 @@
+---
+import Layout from '../layouts/Layout.astro'
+
+const skills = [
+  { name: 'React', icon: 'react.svg' },
+  { name: 'Astro', icon: 'astro.svg' },
+  { name: 'Tailwind', icon: 'tailwind.svg' },
+]
+---
+
+<Layout title='Welcome to Astro.'>
+  <header
+    class='flex justify-between items-center w-full p-4 mx-auto max-w-screen-lg mb-12 sticky top-0 left-0 right-0 backdrop-blur-md'
+  >
+    <h1 class='text-2xl font-bold'>Pablo Muñoz</h1>
+
+    <nav class='flex gap-4'>
+      <a href='/#skills'>Habilidades</a>
+      <a href='/#projects'>Proyectos</a>
+      <a href='mailto:pablomunoz@pablomunoz.dev'>Contacto</a>
+    </nav>
+  </header>
+
+  <main class='px-2 mx-auto max-w-screen-md space-y-32'>
+    <section class='w-full flex flex-col gap-4 justify-center items-center'>
+      <h2 class='text-4xl font-bold text-balance mb-4 text-center'>
+        ¡Bienvenido!
+      </h2>
+      <div class='flex gap-10'>
+        <img
+          src='/pablo.webp'
+          alt='Pablo Muñoz photo'
+          class='size-44 rounded-full object-cover'
+        />
+        <div class='max-w-lg space-y-4'>
+          <p class='text-pretty'>
+            Hola, soy Pablo Muñoz, un desarrollador web apasionado con 5 años de
+            experiencia en crear sitios web hermosos y funcionales. Especializo
+            en desarrollo front-end utilizando React y tengo un fuerte fondo en
+            diseño responsivo y experiencia de usuario.
+          </p>
+          <p class='text-pretty'>
+            Cuando no estoy programando, me puedes encontrar explorando nuevas
+            tecnologías, contribuyendo a proyectos de código abierto o
+            resolviendo desafíos de programación.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id='skills'>
+      <h2 class='text-4xl font-bold text-balance mb-4 text-center'>
+        Habilidades
+      </h2>
+    </section>
+  </main>
+</Layout>
