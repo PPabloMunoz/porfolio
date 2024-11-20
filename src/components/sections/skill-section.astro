@@ -1,4 +1,6 @@
 ---
+import Title from '../title.astro'
+
 export const frontendSkills = [
   { name: 'HTML', icon: 'html.svg' },
   { name: 'CSS', icon: 'css.svg' },
@@ -11,9 +13,10 @@ export const frontendSkills = [
 ]
 
 const backendSkills = [
-  { name: 'Node.JS', icon: 'nodejs.svg' },
+  { name: 'Node.js', icon: 'nodejs.svg' },
   { name: 'Bun', icon: 'bun.svg' },
   { name: 'Express', icon: 'express.svg' },
+  { name: 'Hono', icon: 'hono.svg' },
   { name: 'PostgreSQL', icon: 'postgresql.svg' },
   { name: 'MongoDB', icon: 'mongodb.svg' },
 ]
@@ -35,7 +38,7 @@ const skills = {
 ---
 
 <section id='skills'>
-  <h2 class='text-4xl font-bold text-balance mb-4 text-center'>Habilidades</h2>
+  <Title title='Habilidades' />
 
   <div class='flex gap-10 flex-col'>
     <div class='w-full'>

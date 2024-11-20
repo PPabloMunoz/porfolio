@@ -1,0 +1,72 @@
+---
+import Title from '../title.astro'
+
+const projects = [
+  {
+    name: 'Footy League',
+    description: 'Plataforma para la gestión de ligas',
+    image: 'placeholder.svg',
+    url: 'https://footyleague.es',
+    tags: [
+      'Next.js',
+      'TailwindCSS',
+      'Shadcn/UI',
+      'PostgreSQL',
+      'Drizzle ORM',
+      'Typescript',
+    ],
+  },
+  {
+    name: 'Zylera',
+    description: 'Plataforma de gestión de reservas para negocios',
+    image: 'placeholder.svg',
+    url: 'https://zylera.es',
+    tags: [
+      'Next.js',
+      'TailwindCSS',
+      'Shadcn/UI',
+      'PostgreSQL',
+      'Drizzle ORM',
+      'Typescript',
+    ],
+  },
+]
+---
+
+<section id='projects'>
+  <Title title='Proyectos' />
+
+  <div class='flex flex-col gap-4'>
+    {
+      projects.map((project) => (
+        <div class='flex flex-row gap-4 justify-between items-center border border-transparent hover:border-white/10 hover:bg-card rounded-xl p-4 transition-colors duration-300 shadow-md shadow-black/20'>
+          <div class='flex flex-col gap-1'>
+            <h3 class='text-2xl font-bold'>{project.name}</h3>
+            <p class='text-sm font-light'>{project.description}</p>
+            <div class='flex gap-2 flex-wrap mt-4'>
+              {project.tags.map((tag) => (
+                <span class='text-xs px-3 py-1 border border-white/10 rounded-full flex justify-center items-center'>
+                  {tag}
+                </span>
+              ))}
+            </div>
+
+            <a
+              href={project.url}
+              class='text-sm bg-secondary rounded-full px-3 py-1 w-fit mt-4 flex items-center gap-2 text-black font-medium'
+            >
+              <img src='/icons/globe.svg' alt='External link' class='size-4' />
+              Visitar
+            </a>
+          </div>
+
+          <img
+            src={project.image}
+            alt={project.name}
+            class='aspect-video w-1/3 object-cover'
+          />
+        </div>
+      ))
+    }
+  </div>
+</section>
