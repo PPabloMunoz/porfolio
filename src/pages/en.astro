@@ -6,13 +6,13 @@ import Skills from '../components/Skills.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 
 const bioParagraphs = [
-  "Estudiante de Ingeniería Informática en Valladolid, España. Soy un desarrollador full-stack con una profunda curiosidad por cómo funcionan las cosas desde cero: desde la gestión de memoria en C hasta la arquitectura de sistemas distribuidos en Go y TypeScript.",
-  "Mi enfoque combina la teoría académica con la construcción de productos reales. Me especializo en crear servicios backend robustos e interfaces limpias, siempre priorizando la legibilidad del código, el rendimiento y una experiencia de usuario fluida."
+  "Computer Engineering student based in Valladolid, Spain. I'm a full-stack developer with a deep curiosity for how things work from the ground up: from low-level memory management in C to distributed system architecture in Go and TypeScript.",
+  "My approach combines academic theory with building real-world products. I specialize in crafting robust backend services and clean interfaces, always prioritizing code readability, performance, and a seamless user experience."
 ];
 
 const skillCategories = [
   {
-    name: "Lenguajes",
+    name: "Languages",
     items: ["Golang", "Python", "TypeScript", "Java", "C"]
   },
   {
@@ -20,16 +20,16 @@ const skillCategories = [
     items: ["Astro", "React", "TailwindCSS"]
   },
   {
-    name: "Ops & Herramientas",
+    name: "Ops & Tools",
     items: ["Docker", "Git", "Linux", "CI/CD"]
   }
 ];
 
-const skillsIntro = "No me caso con una sola tecnología; elijo la herramienta adecuada para el problema. Valoro el pragmatismo, la seguridad de tipos y las soluciones que escalan y perduran en el tiempo.";
+const skillsIntro = "I don't marry a single technology; I choose the right tool for the problem. I value pragmatism, type safety, and solutions that scale and stand the test of time.";
 ---
 
-<Layout lang="es">
-	<Hero bioParagraphs={bioParagraphs} lang="es" />
+<Layout lang="en">
+	<Hero bioParagraphs={bioParagraphs} lang="en" />
 	
 	<Section>
 		<Skills introText={skillsIntro} categories={skillCategories} />
@@ -38,26 +38,26 @@ const skillsIntro = "No me caso con una sola tecnología; elijo la herramienta a
 	<Section id="projects">
 		<h2 class="text-xl font-bold flex items-center gap-2 mb-8">
 			<span class="text-cyan-400">./</span>
-			<span>proyectos</span>
+			<span>projects</span>
 		</h2>
 		
 		<div class="grid gap-6">
 			<ProjectCard 
 				title="flux-finances"
-				description="Una herramienta integral de gestión financiera diseñada para rastrear gastos, inversiones y planificación presupuestaria. Construida con un enfoque en rendimiento y visualización de datos."
+				description="A comprehensive financial management tool designed to track expenses, investments, and budget planning. Built with a focus on performance and data visualization."
 				tech={["Golang", "React", "PostgreSQL", "Docker"]}
 				link="https://github.com/PPabloMunoz/flux-finances"
 			/>
 			
 			<div class="border border-zinc-800 border-dashed p-6 flex flex-col items-center justify-center text-zinc-500 gap-2">
 				<span class="text-2xl opacity-50">+</span>
-				<span class="text-sm">Más proyectos en camino...</span>
+				<span class="text-sm">More projects incoming...</span>
 			</div>
 		</div>
 	</Section>
 
 	<footer class="text-xs text-zinc-600 pt-12 border-t border-zinc-900 flex justify-between">
 		<span>&copy; {new Date().getFullYear()} Pablo Munoz</span>
-		<span class="hidden md:inline">Creado con Astro y Tailwind</span>
+		<span class="hidden md:inline">Built with Astro & Tailwind</span>
 	</footer>
 </Layout>
