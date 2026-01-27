@@ -1,11 +1,41 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Hero from '../components/Hero.astro';
+import Section from '../components/Section.astro';
+import Skills from '../components/Skills.astro';
+import ProjectCard from '../components/ProjectCard.astro';
 ---
 
 <Layout>
-	<Welcome />
+	<Hero />
+	
+	<Section>
+		<Skills />
+	</Section>
+
+	<Section id="projects">
+		<h2 class="text-xl font-bold flex items-center gap-2 mb-8">
+			<span class="text-cyan-400">./</span>
+			<span>projects</span>
+		</h2>
+		
+		<div class="grid gap-6">
+			<ProjectCard 
+				title="flux-finances"
+				description="A comprehensive financial management tool designed to track expenses, investments, and budget planning. Built with a focus on performance and data visualization."
+				tech={["Golang", "React", "PostgreSQL", "Docker"]}
+				link="https://github.com/PPabloMunoz/flux-finances"
+			/>
+			
+			<div class="border border-zinc-800 border-dashed p-6 flex flex-col items-center justify-center text-zinc-500 gap-2">
+				<span class="text-2xl opacity-50">+</span>
+				<span class="text-sm">More projects incoming...</span>
+			</div>
+		</div>
+	</Section>
+
+	<footer class="text-xs text-zinc-600 pt-12 border-t border-zinc-900 flex justify-between">
+		<span>&copy; {new Date().getFullYear()} Pablo Munoz</span>
+		<span class="hidden md:inline">Built with Astro & Tailwind</span>
+	</footer>
 </Layout>

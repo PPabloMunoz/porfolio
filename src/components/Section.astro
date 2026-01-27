@@ -1,0 +1,12 @@
+---
+interface Props {
+	class?: string;
+    id?: string;
+}
+
+const { class: className, id } = Astro.props;
+---
+
+<section id={id} class:list={["mb-16 md:mb-24 animate-fade-in-up delay-500", className]}>
+	<slot />
+</section>
