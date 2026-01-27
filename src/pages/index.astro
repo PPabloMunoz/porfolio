@@ -6,14 +6,14 @@ import Skills from '../components/Skills.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 
 const bioParagraphs = [
-  "Estudiante de Ingeniería Informática en Valladolid, España. Soy un desarrollador full-stack con una profunda curiosidad por cómo funcionan las cosas desde cero: desde la gestión de memoria en C hasta la arquitectura de sistemas distribuidos en Go y TypeScript.",
-  "Mi enfoque combina la teoría académica con la construcción de productos reales. Me especializo en crear servicios backend robustos e interfaces limpias, siempre priorizando la legibilidad del código, el rendimiento y una experiencia de usuario fluida."
+  "Estudiante de Ingeniería Informática y desarrollador Full-Stack especializado en arquitecturas de alto rendimiento. Conecto la programación de sistemas de bajo nivel en C con servicios distribuidos escalables en Go y TypeScript.",
+  "Mi compromiso reside en la ingeniería de soluciones de backend robustas que priorizan la fiabilidad del sistema, el mantenimiento del código y una experiencia de usuario óptima. Mi enfoque asegura que el rigor académico se traduzca en productos listos para producción que cumplen con los estándares actuales de la industria."
 ];
 
 const skillCategories = [
   {
     name: "Lenguajes",
-    items: ["Golang", "Python", "TypeScript", "Java", "C"]
+    items: [ "TypeScript", "Golang", "Python", "Java", "C"]
   },
   {
     name: "Web & Frameworks",
@@ -25,7 +25,7 @@ const skillCategories = [
   }
 ];
 
-const skillsIntro = "No me caso con una sola tecnología; elijo la herramienta adecuada para el problema. Valoro el pragmatismo, la seguridad de tipos y las soluciones que escalan y perduran en el tiempo.";
+const skillsIntro = "Me enfoco en resolver problemas, no solo en escribir código. Selecciono las herramientas más efectivas para cada tarea —ya sea a bajo o alto nivel— para construir sistemas eficientes, seguros y mantenibles.";
 ---
 
 <Layout lang="es">
@@ -45,7 +45,7 @@ const skillsIntro = "No me caso con una sola tecnología; elijo la herramienta a
 			<ProjectCard 
 				title="flux-finances"
 				description="Una herramienta integral de gestión financiera diseñada para rastrear gastos, inversiones y planificación presupuestaria. Construida con un enfoque en rendimiento y visualización de datos."
-				tech={["Golang", "React", "PostgreSQL", "Docker"]}
+				tech={["Tanstack Start", "React", "PostgreSQL", "Docker"]}
 				link="https://github.com/PPabloMunoz/flux-finances"
 			/>
 			
@@ -57,7 +57,7 @@ const skillsIntro = "No me caso con una sola tecnología; elijo la herramienta a
 	</Section>
 
 	<footer class="text-xs text-zinc-600 pt-12 border-t border-zinc-900 flex justify-between">
-		<span>&copy; {new Date().getFullYear()} Pablo Munoz</span>
+		<span>&copy; {new Date().getFullYear()} Pablo Muñoz</span>
 		<span class="hidden md:inline">Creado con Astro y Tailwind</span>
 	</footer>
 </Layout>
