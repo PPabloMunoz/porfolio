@@ -4,60 +4,43 @@ import Hero from '../components/Hero.astro';
 import Section from '../components/Section.astro';
 import Skills from '../components/Skills.astro';
 import ProjectCard from '../components/ProjectCard.astro';
+import { content } from '../data/portfolio';
 
-const bioParagraphs = [
-  "Estudiante de Ingeniería Informática y desarrollador Full-Stack especializado en arquitecturas de alto rendimiento. Conecto la programación de sistemas de bajo nivel en C con servicios distribuidos escalables en Go y TypeScript.",
-  "Mi compromiso reside en la ingeniería de soluciones de backend robustas que priorizan la fiabilidad del sistema, el mantenimiento del código y una experiencia de usuario óptima. Mi enfoque asegura que el rigor académico se traduzca en productos listos para producción que cumplen con los estándares actuales de la industria."
-];
-
-const skillCategories = [
-  {
-    name: "Lenguajes",
-    items: [ "TypeScript", "Golang", "Python", "Java", "C"]
-  },
-  {
-    name: "Web & Frameworks",
-    items: ["Astro", "React", "TailwindCSS"]
-  },
-  {
-    name: "Ops & Herramientas",
-    items: ["Docker", "Git", "Linux", "CI/CD"]
-  }
-];
-
-const skillsIntro = "Me enfoco en resolver problemas, no solo en escribir código. Selecciono las herramientas más efectivas para cada tarea —ya sea a bajo o alto nivel— para construir sistemas eficientes, seguros y mantenibles.";
+const data = content.es;
 ---
 
 <Layout lang="es">
-	<Hero bioParagraphs={bioParagraphs} lang="es" />
+	<Hero bioParagraphs={data.hero.bioParagraphs} lang="es" />
 	
 	<Section>
-		<Skills introText={skillsIntro} categories={skillCategories} />
+		<Skills introText={data.skills.intro} categories={data.skills.categories} />
 	</Section>
 
 	<Section id="projects">
 		<h2 class="text-xl font-bold flex items-center gap-2 mb-8">
 			<span class="text-cyan-400">./</span>
-			<span>proyectos</span>
+			<span>{data.projects.title}</span>
 		</h2>
 		
 		<div class="grid gap-6">
-			<ProjectCard 
-				title="flux-finances"
-				description="Una herramienta integral de gestión financiera diseñada para rastrear gastos, inversiones y planificación presupuestaria. Construida con un enfoque en rendimiento y visualización de datos."
-				tech={["Tanstack Start", "React", "PostgreSQL", "Docker"]}
-				link="https://github.com/PPabloMunoz/flux-finances"
-			/>
+			{data.projects.items.map(project => (
+				<ProjectCard 
+					title={project.title}
+					description={project.description}
+					tech={project.tech}
+					link={project.link}
+				/>
+			))}
 			
 			<div class="border border-zinc-800 border-dashed p-6 flex flex-col items-center justify-center text-zinc-500 gap-2">
 				<span class="text-2xl opacity-50">+</span>
-				<span class="text-sm">Más proyectos en camino...</span>
+				<span class="text-sm">{data.projects.footer}</span>
 			</div>
 		</div>
 	</Section>
 
 	<footer class="text-xs text-zinc-600 pt-12 border-t border-zinc-900 flex justify-between">
 		<span>&copy; {new Date().getFullYear()} Pablo Muñoz</span>
-		<span class="hidden md:inline">Creado con Astro y Tailwind</span>
+		<span class="hidden md:inline">{data.footer.createdWith}</span>
 	</footer>
 </Layout>

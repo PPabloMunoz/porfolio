@@ -4,60 +4,43 @@ import Hero from '../components/Hero.astro';
 import Section from '../components/Section.astro';
 import Skills from '../components/Skills.astro';
 import ProjectCard from '../components/ProjectCard.astro';
+import { content } from '../data/portfolio';
 
-const bioParagraphs = [
-  "Computer Engineering student and Full-Stack Developer specializing in high-performance architecture. I bridge the gap between low-level systems programming in C and scalable distributed services using Go and TypeScript.",
-  "I am committed to engineering robust backend solutions that prioritize system reliability, code maintainability, and optimal user experiences. My approach ensures that academic rigor is translated into production-ready products that meet modern industry standards."
-];
-
-const skillCategories = [
-  {
-    name: "Languages",
-    items: ["Golang", "Python", "TypeScript", "Java", "C"]
-  },
-  {
-    name: "Web & Frameworks",
-    items: ["Astro", "React", "TailwindCSS"]
-  },
-  {
-    name: "Ops & Tools",
-    items: ["Docker", "Git", "Linux", "CI/CD"]
-  }
-];
-
-const skillsIntro = "I focus on solving problems, not just writing code. I select the most effective tools for each task—whether low-level or high-level—to build efficient, secure, and maintainable systems.";
+const data = content.en;
 ---
 
 <Layout lang="en">
-	<Hero bioParagraphs={bioParagraphs} lang="en" />
+	<Hero bioParagraphs={data.hero.bioParagraphs} lang="en" />
 	
 	<Section>
-		<Skills introText={skillsIntro} categories={skillCategories} />
+		<Skills introText={data.skills.intro} categories={data.skills.categories} />
 	</Section>
 
 	<Section id="projects">
 		<h2 class="text-xl font-bold flex items-center gap-2 mb-8">
 			<span class="text-cyan-400">./</span>
-			<span>projects</span>
+			<span>{data.projects.title}</span>
 		</h2>
 		
 		<div class="grid gap-6">
-			<ProjectCard 
-				title="flux-finances"
-				description="A comprehensive financial management tool designed to track expenses, investments, and budget planning. Built with a focus on performance and data visualization."
-				tech={["Golang", "React", "PostgreSQL", "Docker"]}
-				link="https://github.com/PPabloMunoz/flux-finances"
-			/>
+			{data.projects.items.map(project => (
+				<ProjectCard 
+					title={project.title}
+					description={project.description}
+					tech={project.tech}
+					link={project.link}
+				/>
+			))}
 			
 			<div class="border border-zinc-800 border-dashed p-6 flex flex-col items-center justify-center text-zinc-500 gap-2">
 				<span class="text-2xl opacity-50">+</span>
-				<span class="text-sm">More projects incoming...</span>
+				<span class="text-sm">{data.projects.footer}</span>
 			</div>
 		</div>
 	</Section>
 
 	<footer class="text-xs text-zinc-600 pt-12 border-t border-zinc-900 flex justify-between">
 		<span>&copy; {new Date().getFullYear()} Pablo Muñoz</span>
-		<span class="hidden md:inline">Built with Astro & Tailwind</span>
+		<span class="hidden md:inline">{data.footer.createdWith}</span>
 	</footer>
 </Layout>
