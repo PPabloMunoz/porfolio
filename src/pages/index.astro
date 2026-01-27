@@ -1,31 +1,11 @@
 ---
-import Layout from '../layouts/Layout.astro'
+import Welcome from '../components/Welcome.astro';
+import Layout from '../layouts/Layout.astro';
 
-import ProjectsSection from '../components/sections/projects-section.astro'
-import SkillSection from '../components/sections/skill-section.astro'
-import WelcomeSection from '../components/sections/welcome-section.astro'
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout title='Pablo Muñoz'>
-  <header
-    class='flex justify-between items-center w-full p-4 mx-auto max-w-screen-lg mb-12 sticky top-0 left-0 right-0 backdrop-blur-md'
-  >
-    <h1 class='text-xl md:text-2xl font-bold'>Pablo Muñoz</h1>
-
-    <nav class='flex gap-2'>
-      <a href='mailto:pablomunoz@pablomunoz.dev'>Contacto</a>
-    </nav>
-  </header>
-
-  <main class='px-7 mx-auto max-w-screen-md space-y-32'>
-    <WelcomeSection />
-    <ProjectsSection />
-    <SkillSection />
-  </main>
-
-  <footer
-    class='flex justify-center my-10 items-center w-full p-4 mx-auto max-w-screen-lg mb-12 sticky top-0 left-0 right-0 backdrop-blur-md'
-  >
-    <p>© {new Date().getFullYear()} All rights reserved</p>
-  </footer>
+<Layout>
+	<Welcome />
 </Layout>
