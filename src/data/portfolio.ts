@@ -1,15 +1,17 @@
+import type { PortfolioContent } from "./types";
+
 const skills = [
   ["HTML & CSS", "TypeScript", "Golang", "Python", "Java", "C", "bash", "SQL"],
   ["Astro", "React", "TailwindCSS"],
   ["Docker", "Git", "Shell", "Github", "CI/CD"],
 ];
 
-export const content = {
-  es: {
+export const content: PortfolioContent = {
+    es: {
     hero: {
       bioParagraphs: [
-        "Estudiante de Ingeniería Informática y desarrollador Full-Stack especializado en arquitecturas de alto rendimiento. Conecto la programación de sistemas de bajo nivel en C con servicios distribuidos escalables en Go y TypeScript.",
-        "Mi compromiso reside en la ingeniería de soluciones de backend robustas que priorizan la fiabilidad del sistema, el mantenimiento del código y una experiencia de usuario óptima. Mi enfoque asegura que el rigor académico se traduzca en productos listos para producción que cumplen con los estándares actuales de la industria.",
+        "Estudiante de Ingeniería Informática y desarrollador **Full-Stack** especializado en **arquitecturas de alto rendimiento**. Conecto la programación de sistemas de bajo nivel en C con servicios distribuidos escalables en Go y TypeScript.",
+        "Mi compromiso reside en la ingeniería de soluciones **backend** robustas que priorizan la fiabilidad del sistema, el mantenimiento del código y una experiencia de usuario óptima. Mi enfoque asegura que el rigor académico se traduzca en **productos listos para producción** que cumplen con los estándares actuales de la industria.",
       ],
     },
     skills: {
@@ -31,6 +33,13 @@ export const content = {
           tech: ["Tanstack Start", "React", "PostgreSQL", "Docker"],
           link: "https://github.com/PPabloMunoz/flux-finances",
         },
+        {
+          title: "go-do",
+          description:
+            "Una aplicación de lista de tareas minimalista para terminal, construida con Go y el framework Bubble Tea. Totalmente управada por teclado, con persistencia de datos y soporte para deshacer.",
+          tech: ["Go"],
+          link: "https://github.com/PPabloMunoz/go-do",
+        },
       ],
       footer: "Más proyectos en camino...",
     },
@@ -41,8 +50,8 @@ export const content = {
   en: {
     hero: {
       bioParagraphs: [
-        "Computer Engineering student and Full-Stack Developer specializing in high-performance architecture. I bridge the gap between low-level systems programming in C and scalable distributed services using Go and TypeScript.",
-        "I am committed to engineering robust backend solutions that prioritize system reliability, code maintainability, and optimal user experiences. My approach ensures that academic rigor is translated into production-ready products that meet modern industry standards.",
+        "Computer Engineering student and **Full-Stack Developer** specializing in **high-performance architecture**. I bridge the gap between low-level systems programming in C and scalable distributed services using Go and TypeScript.",
+        "I am committed to engineering robust **backend solutions** that prioritize system reliability, code maintainability, and optimal user experiences. My approach ensures that academic rigor is translated into **production-ready products** that meet modern industry standards.",
       ],
     },
     skills: {
@@ -63,6 +72,13 @@ export const content = {
             "A comprehensive financial management tool designed to track expenses, investments, and budget planning. Built with a focus on performance and data visualization.",
           tech: ["Tanstack Start", "React", "PostgreSQL", "Docker"],
           link: "https://github.com/PPabloMunoz/flux-finances",
+        },
+        {
+          title: "go-do",
+          description:
+            "A minimal, keyboard-driven todo list application for the terminal built with Go and the Bubble Tea framework. Features data persistence and undo support.",
+          tech: ["Go"],
+          link: "https://github.com/PPabloMunoz/go-do",
         },
       ],
       footer: "More projects incoming...",
