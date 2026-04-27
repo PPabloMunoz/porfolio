@@ -1,16 +1,22 @@
 {
   "name": "porfolio",
-  "type": "module",
   "version": "0.0.1",
+  "type": "module",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "lint": "oxlint .",
+    "format": "oxfmt ."
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.18",
     "astro": "^5.16.15",
     "tailwindcss": "^4.1.18"
+  },
+  "devDependencies": {
+    "oxfmt": "^0.47.0",
+    "oxlint": "^1.62.0"
   }
 }
