@@ -57,8 +57,47 @@ function parseStyledText(text: string): string[] {
     <a href="https://github.com/PPabloMunoz" target="_blank" class="text-zinc-400 hover:text-cyan-400 transition-colors underline decoration-zinc-700 underline-offset-4 hover:decoration-cyan-400">
       GitHub
     </a>
-    <a href="mailto:pablomunoz@pablomunoz.dev" class="text-zinc-400 hover:text-cyan-400 transition-colors underline decoration-zinc-700 underline-offset-4 hover:decoration-cyan-400">
-      Email
-    </a>
+    <div class="relative group">
+      <button 
+        id="copy-email"
+        data-email="pablomunoz@pablomunoz.dev"
+        data-copied-text={lang === 'es' ? '¡Copiado!' : 'Copied!'}
+        class="text-zinc-400 hover:text-cyan-400 transition-colors underline decoration-zinc-700 underline-offset-4 hover:decoration-cyan-400 cursor-pointer bg-transparent border-none p-0 font-inherit"
+      >
+        Email
+      </button>
+      <div 
+        id="copy-notification"
+        class="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-zinc-800 text-white text-[10px] rounded opacity-0 transition-opacity pointer-events-none whitespace-nowrap"
+      >
+        {lang === 'es' ? '¡Copiado!' : 'Copied!'}
+      </div>
+    </div>
   </div>
 </header>
+
+<script>
+  const copyButton = document.getElementById('copy-email');
+  const notification = document.getElementById('copy-notification');
+
+  if (copyButton && notification) {
+    copyButton.addEventListener('click', async () => {
+      const email = copyButton.getAttribute('data-email');
+      if (email) {
+        try {
+          await navigator.clipboard.writeText(email);
+          
+          notification.classList.remove('opacity-0');
+          notification.classList.add('opacity-100');
+          
+          setTimeout(() => {
+            notification.classList.remove('opacity-100');
+            notification.classList.add('opacity-0');
+          }, 2000);
+        } catch (err) {
+          console.error('Failed to copy: ', err);
+        }
+      }
+    });
+  }
+</script>
