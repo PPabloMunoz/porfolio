@@ -7,7 +7,7 @@ const skills = [
 ];
 
 export const content: PortfolioContent = {
-    es: {
+  es: {
     hero: {
       bioParagraphs: [
         "Estudiante de Ingeniería Informática y desarrollador **Full-Stack** especializado en **arquitecturas de alto rendimiento**. Conecto la programación de sistemas de bajo nivel en C con servicios distribuidos escalables en Go y TypeScript.",
@@ -37,8 +37,15 @@ export const content: PortfolioContent = {
           title: "go-do",
           description:
             "Una aplicación de lista de tareas minimalista para terminal, construida con Go y el framework Bubble Tea. Totalmente управada por teclado, con persistencia de datos y soporte para deshacer.",
-          tech: ["Go"],
+          tech: ["Go", "Bubbletea"],
           link: "https://github.com/PPabloMunoz/go-do",
+        },
+        {
+          title: "GoShort",
+          description:
+            "Un acortador de URLs simple, ligero y self-host construido con Go, Gin y SQLite.",
+          tech: ["Go", "Gin", "SQLite"],
+          link: "https://github.com/PPabloMunoz/GoShort",
         },
       ],
       footer: "Más proyectos en camino...",
@@ -77,8 +84,15 @@ export const content: PortfolioContent = {
           title: "go-do",
           description:
             "A minimal, keyboard-driven todo list application for the terminal built with Go and the Bubble Tea framework. Features data persistence and undo support.",
-          tech: ["Go"],
+          tech: ["Go", "Bubbletea"],
           link: "https://github.com/PPabloMunoz/go-do",
+        },
+        {
+          title: "GoShort",
+          description:
+            "A simple, lightweight, self-hosted URL shortener built with Go, Gin, and SQLite.",
+          tech: ["Go", "Gin", "SQLite"],
+          link: "https://github.com/PPabloMunoz/GoShort",
         },
       ],
       footer: "More projects incoming...",
