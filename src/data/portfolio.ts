@@ -1,10 +1,49 @@
-import type { PortfolioContent } from "./types";
+import type { PortfolioContent, Project, ProjectBase } from "./types";
 
 const skills = [
   ["HTML & CSS", "TypeScript", "Golang", "Python", "Java", "C", "bash", "SQL"],
   ["Astro", "React", "TailwindCSS"],
   ["Docker", "Git", "Shell", "Github", "CI/CD"],
 ];
+
+export const projects: ProjectBase[] = [
+  {
+    title: "noports",
+    tech: ["Go"],
+    link: "https://github.com/PPabloMunoz/noports",
+    description_es:
+      "Un proxy de desarrollo local que proporciona a tus servidores locales URL HTTPS estables, con generación automática de certificados y terminación TLS.",
+    description_en:
+      "A local dev proxy that gives your local servers stable HTTPS URLs — with automatic certificate generation and TLS termination.",
+  },
+  {
+    title: "GoShort",
+    tech: ["Go", "Gin", "SQLite"],
+    link: "https://github.com/PPabloMunoz/GoShort",
+    description_es:
+      "Un acortador de URLs simple, ligero y self-host construido con Go, Gin y SQLite.",
+    description_en:
+      "A simple, lightweight, self-hosted URL shortener built with Go, Gin, and SQLite.",
+  },
+  {
+    title: "go-do",
+    tech: ["Go", "Bubbletea"],
+    link: "https://github.com/PPabloMunoz/go-do",
+    description_es:
+      "Una aplicación de lista de tareas minimalista para terminal, construida con Go y el framework Bubble Tea. Totalmente manejada por teclado, con persistencia de datos y soporte para deshacer.",
+    description_en:
+      "A minimal, keyboard-driven todo list application for the terminal built with Go and the Bubble Tea framework. Features data persistence and undo support.",
+  },
+];
+
+export function getProjects(lang: "es" | "en"): Project[] {
+  return projects.map((p) => ({
+    title: p.title,
+    tech: p.tech,
+    link: p.link,
+    description: lang === "es" ? p.description_es : p.description_en,
+  }));
+}
 
 export const content: PortfolioContent = {
   es: {
@@ -25,29 +64,6 @@ export const content: PortfolioContent = {
     },
     projects: {
       title: "proyectos",
-      items: [
-        {
-          title: "noports",
-          description:
-            "Un proxy de desarrollo local que proporciona a tus servidores locales URL HTTPS estables, con generación automática de certificados y terminación TLS.",
-          tech: ["Go"],
-          link: "https://github.com/PPabloMunoz/noports",
-        },
-        {
-          title: "GoShort",
-          description:
-            "Un acortador de URLs simple, ligero y self-host construido con Go, Gin y SQLite.",
-          tech: ["Go", "Gin", "SQLite"],
-          link: "https://github.com/PPabloMunoz/GoShort",
-        },
-        {
-          title: "go-do",
-          description:
-            "Una aplicación de lista de tareas minimalista para terminal, construida con Go y el framework Bubble Tea. Totalmente управada por teclado, con persistencia de datos y soporte para deshacer.",
-          tech: ["Go", "Bubbletea"],
-          link: "https://github.com/PPabloMunoz/go-do",
-        },
-      ],
       footer: "Más proyectos en camino...",
     },
     footer: {
@@ -72,29 +88,6 @@ export const content: PortfolioContent = {
     },
     projects: {
       title: "projects",
-      items: [
-        {
-          title: "noports",
-          description:
-            "A local dev proxy that gives your local servers stable HTTPS URLs — with automatic certificate generation and TLS termination.",
-          tech: ["Go"],
-          link: "https://github.com/PPabloMunoz/noports",
-        },
-        {
-          title: "GoShort",
-          description:
-            "A simple, lightweight, self-hosted URL shortener built with Go, Gin, and SQLite.",
-          tech: ["Go", "Gin", "SQLite"],
-          link: "https://github.com/PPabloMunoz/GoShort",
-        },
-        {
-          title: "go-do",
-          description:
-            "A minimal, keyboard-driven todo list application for the terminal built with Go and the Bubble Tea framework. Features data persistence and undo support.",
-          tech: ["Go", "Bubbletea"],
-          link: "https://github.com/PPabloMunoz/go-do",
-        },
-      ],
       footer: "More projects incoming...",
     },
     footer: {

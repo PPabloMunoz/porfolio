@@ -10,6 +10,14 @@ export type Project = {
   link: string;
 };
 
+export type ProjectBase = {
+  title: string;
+  tech: string[];
+  link: string;
+  description_es: string;
+  description_en: string;
+};
+
 export type HeroSection = {
   bioParagraphs: string[];
 };
@@ -21,7 +29,6 @@ export type SkillsSection = {
 
 export type ProjectsSection = {
   title: string;
-  items: Project[];
   footer: string;
 };
 

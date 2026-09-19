@@ -4,9 +4,10 @@ import Hero from '../components/Hero.astro';
 import Section from '../components/Section.astro';
 import Skills from '../components/Skills.astro';
 import ProjectCard from '../components/ProjectCard.astro';
-import { content } from '../data/portfolio';
+import { content, getProjects } from '../data/portfolio';
 
 const data = content.es;
+const projects = getProjects('es');
 ---
 
 <Layout lang="es">
@@ -23,7 +24,7 @@ const data = content.es;
 		</h2>
 		
 		<div class="grid gap-6">
-			{data.projects.items.map(project => (
+			{projects.map(project => (
 				<ProjectCard 
 					title={project.title}
 					description={project.description}
