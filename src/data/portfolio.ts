@@ -27,18 +27,11 @@ export const content: PortfolioContent = {
       title: "proyectos",
       items: [
         {
-          title: "flux-finances",
+          title: "noports",
           description:
-            "Una herramienta integral de gestión financiera diseñada para rastrear gastos, inversiones y planificación presupuestaria. Construida con un enfoque en rendimiento y visualización de datos.",
-          tech: ["Tanstack Start", "React", "PostgreSQL", "Docker"],
-          link: "https://github.com/PPabloMunoz/flux-finances",
-        },
-        {
-          title: "go-do",
-          description:
-            "Una aplicación de lista de tareas minimalista para terminal, construida con Go y el framework Bubble Tea. Totalmente управada por teclado, con persistencia de datos y soporte para deshacer.",
-          tech: ["Go", "Bubbletea"],
-          link: "https://github.com/PPabloMunoz/go-do",
+            "Un proxy de desarrollo local que proporciona a tus servidores locales URL HTTPS estables, con generación automática de certificados y terminación TLS.",
+          tech: ["Go"],
+          link: "https://github.com/PPabloMunoz/noports",
         },
         {
           title: "GoShort",
@@ -46,6 +39,13 @@ export const content: PortfolioContent = {
             "Un acortador de URLs simple, ligero y self-host construido con Go, Gin y SQLite.",
           tech: ["Go", "Gin", "SQLite"],
           link: "https://github.com/PPabloMunoz/GoShort",
+        },
+        {
+          title: "go-do",
+          description:
+            "Una aplicación de lista de tareas minimalista para terminal, construida con Go y el framework Bubble Tea. Totalmente управada por teclado, con persistencia de datos y soporte para deshacer.",
+          tech: ["Go", "Bubbletea"],
+          link: "https://github.com/PPabloMunoz/go-do",
         },
       ],
       footer: "Más proyectos en camino...",
@@ -74,18 +74,11 @@ export const content: PortfolioContent = {
       title: "projects",
       items: [
         {
-          title: "flux-finances",
+          title: "noports",
           description:
-            "A comprehensive financial management tool designed to track expenses, investments, and budget planning. Built with a focus on performance and data visualization.",
-          tech: ["Tanstack Start", "React", "PostgreSQL", "Docker"],
-          link: "https://github.com/PPabloMunoz/flux-finances",
-        },
-        {
-          title: "go-do",
-          description:
-            "A minimal, keyboard-driven todo list application for the terminal built with Go and the Bubble Tea framework. Features data persistence and undo support.",
-          tech: ["Go", "Bubbletea"],
-          link: "https://github.com/PPabloMunoz/go-do",
+            "A local dev proxy that gives your local servers stable HTTPS URLs — with automatic certificate generation and TLS termination.",
+          tech: ["Go"],
+          link: "https://github.com/PPabloMunoz/noports",
         },
         {
           title: "GoShort",
@@ -93,6 +86,13 @@ export const content: PortfolioContent = {
             "A simple, lightweight, self-hosted URL shortener built with Go, Gin, and SQLite.",
           tech: ["Go", "Gin", "SQLite"],
           link: "https://github.com/PPabloMunoz/GoShort",
+        },
+        {
+          title: "go-do",
+          description:
+            "A minimal, keyboard-driven todo list application for the terminal built with Go and the Bubble Tea framework. Features data persistence and undo support.",
+          tech: ["Go", "Bubbletea"],
+          link: "https://github.com/PPabloMunoz/go-do",
         },
       ],
       footer: "More projects incoming...",
