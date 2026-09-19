@@ -13,31 +13,24 @@ const { introText, categories } = Astro.props;
 ---
 
 <div class="space-y-6">
-  <div class="space-y-2">
-    <h2 class="text-xl font-bold flex items-center gap-2">
-      <span class="text-cyan-400">~/</span>
-      <span>skills</span>
-    </h2>
-    <p class="text-sm text-zinc-500 max-w-lg italic border-l-2 border-zinc-800 pl-4 py-1">
+  <div class="space-y-3">
+    <p class="text-sm text-[var(--color-accent)]">$ skills</p>
+    <h2 class="font-bold text-[var(--color-ink)] text-[var(--text-xl)] tracking-tight min-w-0" style="font-family: var(--font-display); overflow-wrap: anywhere;">skills</h2>
+    <p class="text-sm text-[var(--color-ink-2)] max-w-[65ch] leading-[1.6]">
       {introText}
     </p>
   </div>
-  
-  <div class="grid md:grid-cols-2 gap-8 mt-6">
+
+  <dl class="tnum border-t border-[var(--color-rule)]">
     {categories.map((category) => (
-      <div class="bg-zinc-900/30 p-4 border border-zinc-800/50 rounded-sm">
-        <h3 class="text-cyan-400/80 text-xs uppercase tracking-wider font-bold mb-3 border-b border-zinc-800 pb-2">
+      <div class="grid gap-1 py-4 border-b border-[var(--color-rule)] md:grid-cols-[16ch_minmax(0,1fr)] md:gap-6">
+        <dt class="text-xs uppercase tracking-[0.12em] text-[var(--color-accent)] font-bold">
           {category.name}
-        </h3>
-        <ul class="grid grid-cols-2 gap-2 text-sm">
-          {category.items.map((skill) => (
-            <li class="flex items-center gap-2 text-zinc-400 hover:text-zinc-200 transition-colors">
-              <span class="w-1.5 h-1.5 bg-zinc-700 rounded-full"></span>
-              {skill}
-            </li>
-          ))}
-        </ul>
+        </dt>
+        <dd class="text-sm text-[var(--color-ink-2)] leading-relaxed min-w-0">
+          {category.items.join(" · ")}
+        </dd>
       </div>
     ))}
-  </div>
+  </dl>
 </div>

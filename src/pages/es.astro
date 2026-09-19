@@ -6,13 +6,13 @@ import Skills from '../components/Skills.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import { content, getProjects } from '../data/portfolio';
 
-const data = content.en;
-const projects = getProjects('en');
+const data = content.es;
+const projects = getProjects('es');
 const total = String(projects.length).padStart(2, '0');
 ---
 
-<Layout lang="en" title="Pablo Munoz | Developer">
-	<Hero bioParagraphs={data.hero.bioParagraphs} lang="en" />
+<Layout lang="es">
+	<Hero bioParagraphs={data.hero.bioParagraphs} lang="es" />
 
 	<Section id="skills">
 		<Skills introText={data.skills.intro} categories={data.skills.categories} />
@@ -44,6 +44,6 @@ const total = String(projects.length).padStart(2, '0');
 	</Section>
 
 	<footer class="tnum border-t border-[var(--color-rule)] pt-6 text-xs leading-relaxed text-[var(--color-ink-2)]">
-		<p>&copy; {new Date().getFullYear()} Pablo Muñoz · {data.footer.createdWith} · Go · <a href="/es" hreflang="es" class="whitespace-nowrap underline underline-offset-2 decoration-[var(--color-rule)] hover:text-[var(--color-accent)] hover:decoration-[var(--color-accent)] transition-colors duration-[var(--dur-micro)]">ES</a></p>
+		<p>&copy; {new Date().getFullYear()} Pablo Muñoz · {data.footer.createdWith} · Go · <a href="/" hreflang="en" class="whitespace-nowrap underline underline-offset-2 decoration-[var(--color-rule)] hover:text-[var(--color-accent)] hover:decoration-[var(--color-accent)] transition-colors duration-[var(--dur-micro)]">EN</a></p>
 	</footer>
 </Layout>

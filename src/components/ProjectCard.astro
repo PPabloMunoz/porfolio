@@ -4,29 +4,31 @@ interface Props {
   description: string;
   tech: string[];
   link: string;
+  index?: string;
 }
 
-const { title, description, tech, link } = Astro.props;
+const { title, description, tech, link, index } = Astro.props;
 ---
 
-<a href={link} target="_blank" class="block group relative border border-zinc-800 bg-zinc-900/50 p-6 hover:border-cyan-400/50 transition-colors">
-  <div class="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity text-cyan-400">
-    ↗
+<a href={link} target="_blank" rel="noreferrer" class="group block border border-[var(--color-rule)] bg-[var(--color-paper-2)] p-6 rounded-[var(--radius-card)] hover:border-[var(--color-accent)] focus-visible:border-[var(--color-accent)] transition-colors duration-[var(--dur-short)] min-w-0">
+  <div class="flex items-baseline justify-between gap-4 mb-3">
+    <p class="tnum text-xs text-[var(--color-ink-2)]">{index}</p>
+    <span aria-hidden="true" class="text-[var(--color-accent)]">↗</span>
   </div>
-  
-  <h3 class="text-lg font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
+
+  <h3 class="font-bold text-[var(--color-ink)] text-[var(--text-lg)] tracking-tight mb-2 min-w-0 overflow-wrap-anywhere" style="font-family: var(--font-display); overflow-wrap: anywhere;">
     {title}
   </h3>
-  
-  <p class="text-zinc-400 text-sm mb-6 leading-relaxed">
+
+  <p class="text-[var(--color-ink-2)] text-sm mb-6 leading-[1.6] max-w-[65ch]">
     {description}
   </p>
-  
-  <div class="flex flex-wrap gap-2">
+
+  <ul class="tnum flex flex-wrap gap-2" aria-label="tech">
     {tech.map((t) => (
-      <span class="text-xs px-2 py-1 bg-zinc-800 text-zinc-300 border border-zinc-700">
+      <li class="text-xs px-2 py-1 border border-[var(--color-rule)] text-[var(--color-ink-2)] rounded-[var(--radius-card)] whitespace-nowrap">
         {t}
-      </span>
+      </li>
     ))}
-  </div>
+  </ul>
 </a>

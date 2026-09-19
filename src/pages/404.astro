@@ -3,31 +3,24 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="404: Not Found">
-	<main class="flex flex-col justify-center min-h-[60vh] gap-8 animate-fade-in">
-		<div class="space-y-2">
-			<div class="flex items-center gap-2 text-red-500 text-sm">
-				<span class="animate-pulse">❯</span>
-				<span>error_status</span>
-			</div>
-			<h1 class="text-6xl md:text-8xl font-bold text-white tracking-tighter">
+	<main class="flex flex-col justify-center min-h-[60vh] gap-8 reveal" style="--i: 0">
+		<div class="space-y-3">
+			<p class="text-sm text-[var(--color-accent)]">$ error_status</p>
+			<h1 class="tnum font-bold text-[var(--color-ink)] tracking-tight leading-[1.02] text-[var(--text-display)]" style="font-family: var(--font-display);">
 				404
 			</h1>
 		</div>
 
-		<div class="space-y-2">
-			<div class="flex items-center gap-2 text-cyan-400 text-sm">
-				<span>❯</span>
-				<span>message</span>
-			</div>
-			<p class="text-zinc-400 text-lg">
+		<div class="space-y-3">
+			<p class="text-sm text-[var(--color-accent)]">$ message</p>
+			<p class="text-[var(--color-ink-2)] text-md max-w-[65ch] leading-[1.6]">
 				The requested route was not found in this server.
 			</p>
 		</div>
 
-		<div class="pt-8">
-			<a href="/" class="group flex items-center gap-2 text-white hover:text-cyan-400 transition-colors">
-				<span class="text-cyan-400 group-hover:translate-x-1 transition-transform">❯</span>
-				<span class="underline underline-offset-4 decoration-zinc-700 group-hover:decoration-cyan-400">cd /home</span>
+		<div class="pt-4">
+			<a href="/" class="whitespace-nowrap text-[var(--color-ink)] hover:text-[var(--color-accent)] underline decoration-[var(--color-rule)] hover:decoration-[var(--color-accent)] underline-offset-2 transition-colors duration-[var(--dur-micro)]">
+				<span class="text-[var(--color-accent)]">❯</span> cd /home
 			</a>
 		</div>
 	</main>

@@ -5,7 +5,9 @@ interface Props {
 	title?: string;
 }
 
-const { lang = "es", title = "Pablo Muñoz | Developer" } = Astro.props;
+const { lang = "en", title = "Pablo Muñoz | Developer" } = Astro.props;
+const otherLang = lang === "es" ? "en" : "es";
+const otherHref = lang === "es" ? "/" : "/es";
 ---
 
 <!doctype html>
@@ -16,13 +18,20 @@ const { lang = "es", title = "Pablo Muñoz | Developer" } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={lang === "es" ? "Pablo Muñoz — Ingeniería informática y desarrollo full-stack. Go, TypeScript, sistemas." : "Pablo Munoz — Computer engineering and full-stack development. Go, TypeScript, systems."} />
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 		<title>{title}</title>
 	</head>
-	<body class="bg-zinc-950 text-zinc-100 font-mono antialiased selection:bg-cyan-500/30">
-		<div class="max-w-3xl mx-auto px-6 py-12 md:py-20">
+	<body class="bg-[var(--color-paper)] text-[var(--color-ink)] font-mono antialiased selection:bg-[var(--color-accent)]">
+		<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[var(--z-toast)] focus:px-3 focus:py-2 focus:bg-[var(--color-paper-2)] focus:text-[var(--color-ink)]">
+			{lang === "es" ? "Saltar al contenido" : "Skip to content"}
+		</a>
+		<header class="border-b border-[var(--color-rule)]">
+			<pre class="mx-auto max-w-3xl px-6 py-3 text-sm flex flex-wrap items-center gap-x-2 gap-y-1 whitespace-pre-wrap break-words"><span class="text-[var(--color-accent)]">&gt;</span><span class="font-bold">pablo</span><a href="#skills" class="underline underline-offset-2 decoration-[var(--color-rule)] hover:text-[var(--color-accent)] hover:decoration-[var(--color-accent)] transition-colors duration-[var(--dur-micro)]">--skills</a><a href="#projects" class="underline underline-offset-2 decoration-[var(--color-rule)] hover:text-[var(--color-accent)] hover:decoration-[var(--color-accent)] transition-colors duration-[var(--dur-micro)]">--projects</a><a href={otherHref} hreflang={otherLang} class="underline underline-offset-2 decoration-[var(--color-rule)] hover:text-[var(--color-accent)] hover:decoration-[var(--color-accent)] transition-colors duration-[var(--dur-micro)]">--{otherLang}</a><span class="caret" aria-hidden="true">▮</span></pre>
+		</header>
+		<div class="max-w-3xl mx-auto px-6 py-12 md:py-20" id="main">
 			<slot />
 		</div>
 	</body>

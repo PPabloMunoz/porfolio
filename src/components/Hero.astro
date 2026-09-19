@@ -16,7 +16,7 @@ function parseStyledText(text: string): string[] {
     if (match.index > lastIndex) {
       parts.push(text.slice(lastIndex, match.index));
     }
-    parts.push(`<span class="font-bold text-cyan-400">${match[1]}</span>`);
+    parts.push(`<strong class="font-bold text-[var(--color-accent)]">${match[1]}</strong>`);
     lastIndex = regex.lastIndex;
   }
 
@@ -26,54 +26,67 @@ function parseStyledText(text: string): string[] {
 
   return parts;
 }
+
+const meta: Array<[string, string]> = lang === 'es'
+  ? [
+      ["rol", "estudiante + full-stack"],
+      ["foco", "backend · sistemas"],
+      ["stack", "Go · TS · C"],
+      ["idiomas", "ES / EN"],
+    ]
+  : [
+      ["role", "student + full-stack"],
+      ["focus", "backend · systems"],
+      ["stack", "Go · TS · C"],
+      ["langs", "ES / EN"],
+    ];
 ---
 
-<header class="flex flex-col gap-4 mb-20 animate-fade-in relative">
-  <div class="absolute top-0 right-0">
-    <a 
-      href={lang === 'es' ? '/en' : '/'} 
-      class="text-xs font-bold px-2 py-1 border border-zinc-800 rounded hover:border-cyan-400 hover:text-cyan-400 transition-colors"
-    >
-      {lang === 'es' ? 'EN' : 'ES'}
-    </a>
-  </div>
+<header class="grid gap-10 md:grid-cols-[7fr_5fr] md:items-end mb-16 md:mb-24 reveal" style="--i: 0">
+  <div class="flex flex-col gap-4 min-w-0">
+    <p class="text-sm text-[var(--color-accent)]">$ whoami</p>
+    <h1 class="font-bold tracking-tight text-[var(--color-ink)] text-[var(--text-display)] leading-[1.05] overflow-wrap-anywhere" style="font-family: var(--font-display); letter-spacing: -0.02em; overflow-wrap: anywhere; min-width: 0;">
+      Pablo Muñoz
+    </h1>
 
-  <div class="flex items-center gap-2 text-cyan-400 text-sm mb-2">
-    <span class="animate-pulse">❯</span>
-    <span>whoami</span>
-  </div>
-  
-  <h1 class="text-4xl md:text-6xl font-bold tracking-tight text-white animate-fade-in-up delay-100">
-    Pablo Muñoz
-  </h1>
-  
-  <div class="text-lg text-zinc-400 max-w-2xl leading-relaxed space-y-4 animate-fade-in-up delay-200">
-    {bioParagraphs.map(paragraph => (
-      <p set:html={parseStyledText(paragraph).join('')} />
-    ))}
-  </div>
+    <div class="text-md text-[var(--color-ink-2)] max-w-[65ch] leading-[1.6] space-y-4">
+      {bioParagraphs.map(paragraph => (
+        <p set:html={parseStyledText(paragraph).join('')} />
+      ))}
+    </div>
 
-  <div class="flex gap-4 mt-6 animate-fade-in-up delay-300">
-    <a href="https://github.com/PPabloMunoz" target="_blank" class="text-zinc-400 hover:text-cyan-400 transition-colors underline decoration-zinc-700 underline-offset-4 hover:decoration-cyan-400">
-      GitHub
-    </a>
-    <div class="relative group">
-      <button 
-        id="copy-email"
-        data-email="pablomunoz@pablomunoz.dev"
-        data-copied-text={lang === 'es' ? '¡Copiado!' : 'Copied!'}
-        class="text-zinc-400 hover:text-cyan-400 transition-colors underline decoration-zinc-700 underline-offset-4 hover:decoration-cyan-400 cursor-pointer bg-transparent border-none p-0 font-inherit"
-      >
-        Email
-      </button>
-      <div 
-        id="copy-notification"
-        class="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-zinc-800 text-white text-[10px] rounded opacity-0 transition-opacity pointer-events-none whitespace-nowrap"
-      >
-        {lang === 'es' ? '¡Copiado!' : 'Copied!'}
-      </div>
+    <div class="flex flex-wrap items-center gap-x-6 gap-y-2 mt-4">
+      <a href="https://github.com/PPabloMunoz" target="_blank" rel="noreferrer" class="whitespace-nowrap text-[var(--color-ink-2)] hover:text-[var(--color-accent)] underline decoration-[var(--color-rule)] hover:decoration-[var(--color-accent)] underline-offset-2 transition-colors duration-[var(--dur-micro)]">
+        GitHub ↗
+      </a>
+      <span class="relative inline-flex">
+        <button
+          id="copy-email"
+          type="button"
+          data-email="pablomunoz@pablomunoz.dev"
+          class="whitespace-nowrap text-[var(--color-ink-2)] hover:text-[var(--color-accent)] underline decoration-[var(--color-rule)] hover:decoration-[var(--color-accent)] underline-offset-2 transition-colors duration-[var(--dur-micro)] cursor-pointer bg-transparent border-none p-0"
+        >
+          Email ⧉
+        </button>
+        <span
+          id="copy-notification"
+          role="status"
+          class="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-[var(--color-paper-3)] text-[var(--color-ink)] text-xs rounded-[var(--radius-card)] opacity-0 transition-opacity duration-[var(--dur-short)] pointer-events-none whitespace-nowrap"
+        >
+          {lang === 'es' ? '¡Copiado!' : 'Copied!'}
+        </span>
+      </span>
     </div>
   </div>
+
+  <dl class="tnum border-t border-[var(--color-rule)] text-sm min-w-0">
+    {meta.map(([k, v]) => (
+      <div class="grid grid-cols-[12ch_minmax(0,1fr)] gap-4 py-2 border-b border-[var(--color-rule)]">
+        <dt class="text-[var(--color-ink-2)]">{k}</dt>
+        <dd class="text-[var(--color-ink)] min-w-0 overflow-wrap-anywhere" style="overflow-wrap: anywhere;">{v}</dd>
+      </div>
+    ))}
+  </dl>
 </header>
 
 <script>
@@ -86,10 +99,10 @@ function parseStyledText(text: string): string[] {
       if (email) {
         try {
           await navigator.clipboard.writeText(email);
-          
+
           notification.classList.remove('opacity-0');
           notification.classList.add('opacity-100');
-          
+
           setTimeout(() => {
             notification.classList.remove('opacity-100');
             notification.classList.add('opacity-0');

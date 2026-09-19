@@ -8,6 +8,10 @@ export default defineConfig({
   site: "https://pablomunoz.dev",
   output: "static",
 
+  redirects: {
+    "/en": "/",
+  },
+
   vite: {
     plugins: [tailwindcss()],
   },
